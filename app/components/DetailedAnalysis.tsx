@@ -8,7 +8,19 @@ interface DetailedAnalysisProps {
   onLogout: () => void;
 }
 
-const ScoreCard = ({ title, score, description }) => (
+interface ScoreCardProps {
+  title: string;
+  score: number;
+  description: string;
+}
+
+interface ExpandableSectionProps {
+  title: string;
+  icon: React.ReactNode;
+  children: React.ReactNode;
+}
+
+const ScoreCard: React.FC<ScoreCardProps> = ({ title, score, description }) => (
   <Card className="p-4">
     <div className="space-y-2">
       <div className="flex items-center justify-between">
@@ -21,7 +33,7 @@ const ScoreCard = ({ title, score, description }) => (
   </Card>
 );
 
-const ExpandableSection = ({ title, icon, children }) => {
+const ExpandableSection: React.FC<ExpandableSectionProps> = ({ title, icon, children }) => {
   const [isExpanded, setIsExpanded] = useState(false);
 
   return (
